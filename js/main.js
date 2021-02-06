@@ -43,4 +43,5 @@ const calculateRandomArbitrary = function (min, max, decimalPlaces) {
   }
 }
 
-console.log(getRandomArbitrary(1.5, 1.7, 1));
+calculateRandomInt(10, 15);
+calculateRandomArbitrary(1.2, 3.7);
