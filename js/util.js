@@ -27,4 +27,4 @@ const getRandomArbitrary = function (min, max, decimalPlaces) {
   return (Math.floor(Math.random() * (max - min + 1)) + min) / optionalNumber;
 }
 
-export {calculateRandomInt, getRandomArbitrary};
+export {calculateRandomInt, getRandomArbitrary, getRandomInt};
