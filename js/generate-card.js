@@ -1,7 +1,4 @@
-import {generateMock} from './data.js';
-
 const cardTemplate = document.querySelector('#card').content.querySelector('.popup');
-const cardContainer = document.querySelector('#map-canvas');
 
 const createCardElement = function (object) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -62,5 +59,4 @@ const createCardElement = function (object) {
   return cardElement;
 }
 
-const mock = generateMock();
-cardContainer.appendChild(createCardElement(mock[0]));
+export {createCardElement};
