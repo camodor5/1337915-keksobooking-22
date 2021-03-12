@@ -62,6 +62,4 @@ const generateMock = function () {
   })
 };
 
-generateMock();
-
 export {generateMock};
