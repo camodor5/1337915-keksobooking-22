@@ -81,7 +81,7 @@ const renderMap = () => {
     const address = document.querySelector('#address');
     const value = getLat + ' ,' + getLng;
     address.setAttribute('value', value);
-    address.setAttribute('disabled', 'disabled');
+    address.setAttribute('readonly', 'true');
   });
 
   const pinIcon = L.icon({
