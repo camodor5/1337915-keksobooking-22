@@ -1,4 +1,3 @@
-import {generateMock} from './data.js'
 import {createCardElement} from './generate-card.js'
 
 const form = document.querySelector('.ad-form');
@@ -36,7 +35,7 @@ const activatePage = () => {
   })
 }
 
-const renderMap = () => {
+const renderMap = (ads) => {
   let L = window.L;
 
   const map = L.map('map-canvas')
@@ -90,13 +89,11 @@ const renderMap = () => {
     iconAnchor: [26, 52],
   });
 
-  const ads = generateMock();
-
-
   ads.forEach((ad)=>{
+    console.log(ad);
     const marker = L.marker({
-      lat: ad.location.x,
-      lng: ad.location.y,
+      lat: ad.location.lat,
+      lng: ad.location.lng,
     },
     {
       icon: pinIcon,
@@ -111,8 +108,5 @@ const renderMap = () => {
   });
 }
 
-deactivatePage();
-renderMap();
-
-
+export {deactivatePage, renderMap};
 

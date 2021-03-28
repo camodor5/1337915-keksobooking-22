@@ -1,3 +1,7 @@
+import {sendData} from './fetch-pins.js';
+import {successModalToggle, errorModalToggle} from './modal.js';
+
+const adForm = document.querySelector('.ad-form');
 const typeSelect = document.querySelector('#type');
 const getPriceMinValue = (typeSelectValue) => {
   switch (typeSelectValue) {
@@ -108,3 +112,53 @@ const priceInput = document.querySelector('#price');
 priceInput.addEventListener('input', () => {
   priceInput.reportValidity();
 });
+
+//Дефолтные данные и возврат к дефолту после отправки формы.
+
+const typeDefault = document.querySelector('#type').value;
+const timeInDefault = document.querySelector('#timein').value;
+const roomDefault = document.querySelector('#room_number').value;
+const timeOutDefault = document.querySelector('#timeout').value;
+const featureCheckbox = document.querySelectorAll('.feature__checkbox');
+const capacityDefault = document.querySelector('#capacity').value;
+const descriptionDefault = document.querySelector('#description').value;
+
+const onFormSuccess = () => {
+  document.querySelector('#title').value = '';
+  document.querySelector('#address').value = '35.6895000, 139.6917100';
+  document.querySelector('#type').value = typeDefault;
+  document.querySelector('#price').value = '';
+  document.querySelector('#timein').value = timeInDefault;
+  document.querySelector('#timeout').value = timeOutDefault;
+  document.querySelector('#room_number').value = roomDefault;
+  document.querySelector('#capacity').value = capacityDefault;
+  featureCheckbox.forEach(element => {
+    element.checked = false;
+  });
+  document.querySelector('#description').value = descriptionDefault;
+  successModalToggle();
+};
+
+const onFormError = () => {
+  errorModalToggle();
+};
+
+
+
+//Обработчик submit
+
+
+const setUserFormSubmit = (onSuccess, onError) => {
+  adForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    const formData = new FormData(evt.target)
+
+    sendData(
+      () => onSuccess(),
+      () => onError(),
+      formData,
+    );
+  });
+};
+
+export {onFormSuccess, setUserFormSubmit, onFormError};
