@@ -11,11 +11,11 @@ const getData = (onSuccess) => {
     });
 };
 
-const sendData = (onSuccess, onError, data) => {
+const sendData = (onSuccess, onError, body) => {
   fetch('https://22.javascript.pages.academy/keksobooking',
     {
       method: 'POST',
-      data,
+      body,
     },
   ).then((response) => {
     if (response.ok) {

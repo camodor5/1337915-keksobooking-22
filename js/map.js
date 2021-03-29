@@ -90,7 +90,6 @@ const renderMap = (ads) => {
   });
 
   ads.forEach((ad)=>{
-    console.log(ad);
     const marker = L.marker({
       lat: ad.location.lat,
       lng: ad.location.lng,
