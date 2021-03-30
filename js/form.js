@@ -55,7 +55,7 @@ const capacityRemoveDisabled = (start, end) => {
   }
 }
 
-if (roomsAmount.value == 1) {
+if (roomsAmount.value === 1) {
   capacityDisabled();
   capacity[2].selected = true;
   capacity[2].removeAttribute('disabled');
@@ -68,19 +68,19 @@ roomsAmount.addEventListener('change', () => {
       capacity[i].selected = true;
     }
   }
-  if (roomsAmount.value == 1) {
+  if (roomsAmount.value === 1) {
     capacityDisabled();
     capacityRemoveDisabled(2, 2);
   }
-  if (roomsAmount.value == 2) {
+  if (roomsAmount.value === 2) {
     capacityDisabled();
     capacityRemoveDisabled(1, 2);
   }
-  if (roomsAmount.value == 3) {
+  if (roomsAmount.value === 3) {
     capacityDisabled();
     capacityRemoveDisabled(0, 2);
   }
-  if (roomsAmount.value == 100) {
+  if (roomsAmount.value === 100) {
     capacityDisabled();
     capacity[3].selected = true;
     capacityRemoveDisabled(3, 3);

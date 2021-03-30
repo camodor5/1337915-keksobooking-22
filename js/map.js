@@ -65,11 +65,11 @@ const housingRoomsFilter = (arrElement) => {
     case 'any':
       return true;
     case '1':
-      return arrElement.offer.rooms == 1;
+      return arrElement.offer.rooms === 1;
     case '2':
-      return arrElement.offer.rooms == 2;
+      return arrElement.offer.rooms === 2;
     case '3':
-      return arrElement.offer.rooms == 3;
+      return arrElement.offer.rooms === 3;
   }
 }
 
@@ -78,21 +78,13 @@ const housingGuestsFilter = (arrElement) => {
     case 'any':
       return true;
     case '2':
-      return arrElement.offer.guests == 2;
+      return arrElement.offer.guests === 2;
     case '1':
-      return arrElement.offer.guests == 1;
+      return arrElement.offer.guests === 1;
     case '0':
-      return arrElement.offer.guests == 0;
+      return arrElement.offer.guests === 0;
   }
 }
-
-/*const houseFeaturesFilter = (array) => {
-  const checkedFeatures = Array.from(featuresFilter.querySelectorALL('input:checked'));
-  checkedFeatures.forEach((checkedFeature) => {
-    return array.offer.features.includes(checkedFeature)
-  })
-
-}*/
 
 const houseFeaturesFilter = (array) => {
   const checkedFeaturesCollection = featuresFilters.querySelectorAll('input:checked');
