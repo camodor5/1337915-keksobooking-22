@@ -1,28 +1,12 @@
 const ALERT_SHOW_TIME = 5000;
 
-const getRandomInt = function (min, max) {
+const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const calculateRandomInt = function (min, max) {
-  if (min >= 0 & max >= 0) {
-    if (max > min) {
-      return getRandomInt(min,max) //Максимум включается, минимум включается
-    } else {
-      if (max < min) {
-        return getRandomInt(max,min) // Необязательно передавать меньшее число первым параметром
-      } else {
-        alert('Некорректный интервал');
-      }
-    }
-  } else {
-    alert('Некорректный интервал');
-  }
-}
-
-const getRandomArbitrary = function (min, max, decimalPlaces) {
+const getRandomArbitrary = (min, max, decimalPlaces) => {
   const optionalNumber = 10 ** decimalPlaces;
   min = Math.ceil(min * optionalNumber);
   max = Math.floor(max * optionalNumber);
@@ -54,4 +38,4 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 }
 
-export {calculateRandomInt, getRandomArbitrary, getRandomInt, isEscEvent, showAlert};
+export {getRandomArbitrary, getRandomInt, isEscEvent, showAlert};

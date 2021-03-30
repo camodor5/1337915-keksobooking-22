@@ -41,13 +41,13 @@ const housingRooms = document.querySelector('#housing-rooms');
 const housingGuests = document.querySelector('#housing-guests');
 const featuresFilters = document.querySelector('#housing-features');
 
-const housingTypeFilter = (arrElement) => {
+const filterHousingTypes = (arrElement) => {
   if (housingType.value === arrElement.offer.type || housingType.value === 'any') {
     return true;
   }
 }
 
-const housingPriceFilter = (arrElement) => {
+const filterHousingPrice = (arrElement) => {
   switch (housingPrice.value) {
     case 'any':
       return true;
@@ -60,7 +60,7 @@ const housingPriceFilter = (arrElement) => {
   }
 }
 
-const housingRoomsFilter = (arrElement) => {
+const filterHousingRooms = (arrElement) => {
   switch (housingRooms.value) {
     case 'any':
       return true;
@@ -73,7 +73,7 @@ const housingRoomsFilter = (arrElement) => {
   }
 }
 
-const housingGuestsFilter = (arrElement) => {
+const filterHousingGuests = (arrElement) => {
   switch (housingGuests.value) {
     case 'any':
       return true;
@@ -86,7 +86,7 @@ const housingGuestsFilter = (arrElement) => {
   }
 }
 
-const houseFeaturesFilter = (array) => {
+const filterHouseFeatures = (array) => {
   const checkedFeaturesCollection = featuresFilters.querySelectorAll('input:checked');
   let checkedFeatures = [...checkedFeaturesCollection];
   return checkedFeatures.every((checkedFeature) => {
@@ -95,7 +95,7 @@ const houseFeaturesFilter = (array) => {
 }
 
 const applyFilters = (array) => {
-  return array.filter(housingTypeFilter).filter(housingPriceFilter).filter(housingRoomsFilter).filter(housingGuestsFilter).filter(houseFeaturesFilter);
+  return array.filter(filterHousingTypes).filter(filterHousingPrice).filter(filterHousingRooms).filter(filterHousingGuests).filter(filterHouseFeatures);
 }
 
 const renderMarkers = (ads, map) => {

@@ -1,5 +1,4 @@
 /* global _:readonly */
-import './data.js';
 import './generate-card.js';
 import {deactivatePage, renderMap, renderMarkers} from './map.js';
 import {getData} from './fetch-pins.js';

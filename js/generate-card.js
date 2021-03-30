@@ -1,6 +1,6 @@
 const cardTemplate = document.querySelector('#card').content.querySelector('.popup');
 
-const createCardElement = function (object) {
+const createCardElement = (object) => {
   const cardElement = cardTemplate.cloneNode(true);
   const popupTitle = cardElement.querySelector('.popup__title');
   popupTitle.textContent = object.offer.title;
