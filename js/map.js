@@ -180,3 +180,5 @@ const renderMap = () => {
 }
 
 export {deactivatePage, renderMap, renderMarkers}
+
+//Отправлен на проверку
