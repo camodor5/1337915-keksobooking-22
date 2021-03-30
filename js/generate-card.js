@@ -19,7 +19,6 @@ const createCardElement = function (object) {
     houseType.textContent = 'Дом';
   }
 
-
   const popupCapacity = cardElement.querySelector('.popup__text--capacity');
   popupCapacity.textContent = object.offer.rooms + ' комнаты для ' + object.offer.guests + ' гостей';
 
