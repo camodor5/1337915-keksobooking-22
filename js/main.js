@@ -1,14 +1,20 @@
+/* global _:readonly */
 import './data.js';
 import './generate-card.js';
-import {deactivatePage, renderMap} from './map.js';
+import {deactivatePage, renderMap, renderMarkers} from './map.js';
 import {getData} from './fetch-pins.js';
 import {onFormSuccess, setUserFormSubmit, onFormError} from './form.js';
 
-const OFFERS_COUNT = 10;
+const RERENDER_DELAY = 500;
 
 deactivatePage();
 getData((offers) => {
-  renderMap(offers.slice(0, OFFERS_COUNT));
+  const map = renderMap();
+  renderMarkers(offers, map);
+  const mapFilters = document.querySelector('.map__filters');
+  mapFilters.addEventListener('change', _.debounce(() => {
+    renderMarkers(offers, map);
+  }, RERENDER_DELAY))
 });
 
 
